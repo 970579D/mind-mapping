@@ -1,0 +1,151 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Mind mapping studio design system.
+ * Deep ink canvas, warm signal accents. All colors are oklch tokens.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-canvas: var(--canvas);
+  --color-canvas-grid: var(--canvas-grid);
+  --color-panel: var(--panel);
+  --color-hover: var(--hover);
+  --color-edit: var(--edit);
+  --color-link: var(--link);
+  --color-node-1: var(--node-1);
+  --color-node-2: var(--node-2);
+  --color-node-3: var(--node-3);
+  --color-node-4: var(--node-4);
+  --color-node-5: var(--node-5);
+  --color-node-6: var(--node-6);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --shadow-node: 0 10px 30px -12px oklch(0 0 0 / 0.7);
+  --shadow-panel: 0 24px 60px -30px oklch(0 0 0 / 0.9);
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: oklch(0.19 0.019 258);
+  --foreground: oklch(0.95 0.008 250);
+  --card: oklch(0.235 0.021 258);
+  --card-foreground: oklch(0.95 0.008 250);
+  --popover: oklch(0.235 0.021 258);
+  --popover-foreground: oklch(0.95 0.008 250);
+  --primary: oklch(0.8 0.155 84);
+  --primary-foreground: oklch(0.22 0.03 70);
+  --secondary: oklch(0.29 0.023 258);
+  --secondary-foreground: oklch(0.95 0.008 250);
+  --muted: oklch(0.27 0.02 258);
+  --muted-foreground: oklch(0.68 0.018 255);
+  --accent: oklch(0.72 0.13 195);
+  --accent-foreground: oklch(0.2 0.03 210);
+  --destructive: oklch(0.62 0.2 22);
+  --destructive-foreground: oklch(0.97 0.01 20);
+  --border: oklch(0.33 0.022 258);
+  --input: oklch(0.33 0.022 258);
+  --ring: oklch(0.8 0.155 84);
+
+  --canvas: oklch(0.165 0.018 258);
+  --canvas-grid: oklch(0.29 0.022 258);
+  --panel: oklch(0.215 0.02 258);
+  --hover: oklch(0.72 0.13 195);
+  --edit: oklch(0.8 0.155 84);
+  --link: oklch(0.45 0.035 250);
+
+  --node-1: oklch(0.72 0.13 195);
+  --node-2: oklch(0.8 0.155 84);
+  --node-3: oklch(0.68 0.16 340);
+  --node-4: oklch(0.72 0.15 145);
+  --node-5: oklch(0.68 0.15 275);
+  --node-6: oklch(0.72 0.16 30);
+
+  --sidebar: oklch(0.215 0.02 258);
+  --sidebar-foreground: oklch(0.95 0.008 250);
+  --sidebar-primary: oklch(0.8 0.155 84);
+  --sidebar-primary-foreground: oklch(0.22 0.03 70);
+  --sidebar-accent: oklch(0.29 0.023 258);
+  --sidebar-accent-foreground: oklch(0.95 0.008 250);
+  --sidebar-border: oklch(0.33 0.022 258);
+  --sidebar-ring: oklch(0.8 0.155 84);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility canvas-grid {
+  background-color: var(--color-canvas);
+  background-image:
+    radial-gradient(var(--color-canvas-grid) 1px, transparent 1px);
+  background-size: 26px 26px;
+}
+
+@keyframes node-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@utility node-pop {
+  animation: node-pop 160ms ease-out;
+}
