@@ -19,6 +19,15 @@ pipeline {
             }
         }
 
+        stage('Start application') {
+            steps {
+                sh '''
+                    nohup npm run dev > app.log 2>&1 &
+                    echo $! > app.pid
+                '''
+            }
+        }
+
        
     }
 }
