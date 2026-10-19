@@ -19,9 +19,10 @@ pipeline {
             }
         }
 
-        stage('build application') {
+        stage('Build Application') {
             steps {
-                sh 'npm run dev'
+                withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {
+                    sh 'nohup npm run dev > npm-dev.log 2>&1 &'
             }
         }
     }
